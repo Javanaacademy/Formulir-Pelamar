@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pelamar Pendidik - Javana Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D5F91;
+            --secondary: #F5A623;
+            --light: #F9F9F9;
+            --dark: #333333;
+            --success: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .javana-form-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: var(--primary);
+            padding: 25px 30px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .form-header img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .form-header h2 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .form-header p {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .form-content {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(45, 95, 145, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #234a73;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .javana-form-container {
+                margin: 10px;
+            }
+            
+            .form-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="javana-form-container">
+        <div class="form-header">
+            <img src="https://ik.imagekit.io/nxshmubxa/Logopit_1747077229106.png?updatedAt=1748004001562" alt="Javana Academy Logo">
+            <div>
+                <h2>Formulir Pelamar Pendidik</h2>
+                <p>Bergabunglah dengan tim pengajar profesional Javana Academy</p>
+            </div>
+        </div>
+        
+        <div class="form-content">
+            <form id="educatorForm" onsubmit="submitForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName" class="required">Nama Lengkap</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="required">Nomor WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="required">Bidang yang Diajarkan</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Pilih bidang</option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="IPA">IPA</option>
+                            <option value="IPS">IPS</option>
+                            <option value="Bahasa Inggris">Bahasa Inggris</option>
+                            <option value="Kromo Inggil">Kromo Inggil</option>
+                            <option value="Aksara Jawa">Aksara Jawa</option>
+                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                            <option value="Etika Jawa">Etika Jawa</option>
+                            <option value="Leadership">Leadership</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience" class="required">Pengalaman Mengajar (Tahun)</label>
+                    <input type="number" id="experience" name="experience" min="0" step="0.5" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="education" class="required">Pendidikan Terakhir</label>
+                    <input type="text" id="education" name="education" placeholder="Contoh: S1 Pendidikan Matematika - Universitas X" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certification">Sertifikasi (jika ada)</label>
+                    <input type="text" id="certification" name="certification" placeholder="Contoh: Sertifikasi Guru Profesional, TOEFL Certificate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="organization" class="required">Pengalaman Organisasi</label>
+                    <textarea id="organization" name="organization" placeholder="Jabatan, nama organisasi, periode, dan deskripsi singkat" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="motivation" class="required">Motivasi Mengajar di Javana Academy</label>
+                    <textarea id="motivation" name="motivation" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+                </button>
+                
+                <div class="form-footer">
+                    <p>Data Anda akan dikirimkan ke tim rekrutmen Javana Academy melalui WhatsApp</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const formValues = Object.fromEntries(formData.entries());
+            
+            // Format pesan WhatsApp
+            let message = `Halo Javana Academy,\n\nSaya tertarik untuk bergabung sebagai pendidik. Berikut detail saya:\n\n`;
+            message += `*Nama Lengkap:* ${formValues.fullName}\n`;
+            message += `*Email:* ${formValues.email}\n`;
+            message += `*Nomor WhatsApp:* ${formValues.phone}\n`;
+            message += `*Bidang yang Diajarkan:* ${formValues.subject}\n`;
+            message += `*Pengalaman Mengajar:* ${formValues.experience} tahun\n`;
+            message += `*Pendidikan Terakhir:* ${formValues.education}\n`;
+            
+            if(formValues.certification) {
+                message += `*Sertifikasi:* ${formValues.certification}\n`;
+            }
+            
+            message += `*Pengalaman Organisasi:* ${formValues.organization}\n`;
+            message += `*Motivasi:* ${formValues.motivation}\n`;
+            
+            message += `\nTerima kasih atas pertimbangannya. Saya menunggu kabar lebih lanjut.\n\nHormat saya,\n${formValues.fullName}`;
+            
+            // Encode pesan untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Nomor WhatsApp tujuan
+            const phoneNumber = '6287819467451';
+            
+            // Buka WhatsApp dengan pesan
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Reset form setelah pengiriman
+            form.reset();
+        }
+    </script>
+</body>
+</html>
