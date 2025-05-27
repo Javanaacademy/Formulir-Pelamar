@@ -192,6 +192,18 @@
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
+                        <label for="birthPlaceDate" class="required">Tempat, Tanggal Lahir</label>
+                        <input type="text" id="birthPlaceDate" name="birthPlaceDate" placeholder="Contoh: Jakarta, 15 Agustus 1990" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address" class="required">Alamat Lengkap</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
                         <label for="subject" class="required">Bidang yang Diajarkan</label>
                         <select id="subject" name="subject" required>
                             <option value="" disabled selected>Pilih bidang</option>
@@ -206,11 +218,10 @@
                             <option value="Leadership">Leadership</option>
                         </select>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="experience" class="required">Pengalaman Mengajar (Tahun)</label>
-                    <input type="number" id="experience" name="experience" min="0" step="0.5" required>
+                    <div class="form-group">
+                        <label for="experience" class="required">Pengalaman Mengajar (Tahun)</label>
+                        <input type="number" id="experience" name="experience" min="0" step="0.5" required>
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -257,6 +268,8 @@
             message += `*Nama Lengkap:* ${formValues.fullName}\n`;
             message += `*Email:* ${formValues.email}\n`;
             message += `*Nomor WhatsApp:* ${formValues.phone}\n`;
+            message += `*Tempat, Tanggal Lahir:* ${formValues.birthPlaceDate}\n`;
+            message += `*Alamat Lengkap:* ${formValues.address}\n`;
             message += `*Bidang yang Diajarkan:* ${formValues.subject}\n`;
             message += `*Pengalaman Mengajar:* ${formValues.experience} tahun\n`;
             message += `*Pendidikan Terakhir:* ${formValues.education}\n`;
